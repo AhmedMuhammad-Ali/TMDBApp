@@ -49,6 +49,7 @@
 		60A1AF302B66898E001006CE /* TMDBAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMDBAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		60A1AF342B66898E001006CE /* TMDBAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBAppUITests.swift; sourceTree = "<group>"; };
 		60A1AF362B66898E001006CE /* TMDBAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		60A1AF432B668FFD001006CE /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Networking; path = ../Networking; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +80,7 @@
 		60A1AF072B66898B001006CE = {
 			isa = PBXGroup;
 			children = (
+				60A1AF432B668FFD001006CE /* Networking */,
 				60A1AF122B66898C001006CE /* TMDBApp */,
 				60A1AF292B66898E001006CE /* TMDBAppTests */,
 				60A1AF332B66898E001006CE /* TMDBAppUITests */,
