@@ -36,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6007B0962B69434100A2CF62 /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Domain; sourceTree = "<group>"; };
 		60337A342B680829002045C1 /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Networking; sourceTree = "<group>"; };
 		60A1AF102B66898B001006CE /* TMDBApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDBApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60A1AF132B66898C001006CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +81,7 @@
 		60A1AF072B66898B001006CE = {
 			isa = PBXGroup;
 			children = (
+				6007B0962B69434100A2CF62 /* Domain */,
 				60337A342B680829002045C1 /* Networking */,
 				60A1AF122B66898C001006CE /* TMDBApp */,
 				60A1AF292B66898E001006CE /* TMDBAppTests */,
