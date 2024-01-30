@@ -22,7 +22,7 @@ public final class DefaultFetchAllMoviesUseCase: FetchAllMoviesUseCase {
     /// - Returns: An array of `Movie` instances representing movie information.
     ///
     /// - Throws: An error of type `Error` if movie information cannot be retrieved.
-    public func execute() async throws -> [Movie] {
+    public func execute() async throws -> [MoviesPage] {
         try await moviesRepository.fetchAllMovies()
     }
 }

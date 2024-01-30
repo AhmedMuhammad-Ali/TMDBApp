@@ -13,5 +13,5 @@ public protocol MoviesRepository {
     /// - Returns: An array of `Movie` instances representing movie information.
     ///
     /// - Throws: An error of type `Error` if the movie information cannot be retrieved.
-    func fetchAllMovies() async throws -> [Movie]
+    func fetchAllMovies() async throws -> [MoviesPage]
 }

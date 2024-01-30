@@ -13,7 +13,7 @@ public protocol FetchAllMoviesUseCase {
     /// - Returns: An array of `Movie` instances representing movie information.
     ///
     /// - Throws: An error of type `Error` if movie information cannot be retrieved.
-    func execute() async throws -> [Movie]
+    func execute() async throws -> [MoviesPage]
 
     /// A repository responsible for fetching movie information.
     var moviesRepository: MoviesRepository { get }
