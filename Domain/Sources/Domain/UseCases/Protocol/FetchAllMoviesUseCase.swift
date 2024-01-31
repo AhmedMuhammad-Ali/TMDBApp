@@ -6,15 +6,16 @@
 //
 
 import Foundation
-/// A protocol defining the requirements for a use case to fetch all movies.
+/// A protocol defining the contract for the use case of fetching all movies.
 public protocol FetchAllMoviesUseCase {
-    /// Executes the use case to fetch all movies.
+
+    /// Executes the use case, fetching information for all movies.
     ///
-    /// - Returns: An array of `Movie` instances representing movie information.
+    /// - Returns: A MoviesPage instance representing a page of movies.
     ///
     /// - Throws: An error of type `Error` if movie information cannot be retrieved.
-    func execute() async throws -> [MoviesPage]
+    func execute() async throws -> MoviesPage
 
-    /// A repository responsible for fetching movie information.
+    /// The repository responsible for fetching movie information.
     var moviesRepository: MoviesRepository { get }
 }
