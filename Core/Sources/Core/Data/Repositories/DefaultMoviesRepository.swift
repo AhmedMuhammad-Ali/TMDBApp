@@ -9,7 +9,10 @@ import Networking
 
 /// A concrete implementation of the `MoviesRepository` protocol for fetching movie information.
 public final class DefaultMoviesRepository {
+
+    /// The network dispatcher responsible for handling network requests.
     private let networking: NetworkDispatcher
+
     /// Initializes an instance of `DefaultMoviesRepository`.
     ///
     /// - Parameter networking: An optional `NetworkDispatcher` to use for network requests. Defaults to `DefaultNetworkDispatcher`.
@@ -17,18 +20,21 @@ public final class DefaultMoviesRepository {
         self.networking = networking
     }
 }
+
 // MARK: - DefaultMoviesRepository + MoviesRepository
 extension DefaultMoviesRepository: MoviesRepository {
+
     /// Fetches information for all movies.
     ///
     /// - Returns: An array of `Movie` instances representing movie information.
     ///
     /// - Throws: An error of type `Error` if movie information cannot be retrieved.
-    public func fetchAllMovies() async throws -> [MoviesPage] {
+    public func fetchAllMovies() async throws -> MoviesPage {
         let result = await networking.dispatch(FetchAllMoviesRequest())
         switch result {
         case .success(let responseDTO):
-            return responseDTO.compactMap({ $0.toDomain()})
+            guard let moviesPage = responseDTO.toDomain() else { throw RequestError.noResponse }
+            return moviesPage
         case .failure(let error):
             throw error
         }

@@ -5,49 +5,56 @@
 //  Created by Ahmed Ali on 30/01/2024.
 //
 
-import Domain
-
 import Foundation
-
-// MARK: - Data Transfer Object
-
+import Domain
+/// A data transfer object representing the response for a list of movies.
 struct MoviesResponseDTO: Decodable {
+
+    /// The page number of the movie list.
+    let page: Int?
+
+    /// The total number of pages in the movie list.
+    let totalPages: Int?
+
+    /// An array of movie data transfer objects.
+    let movies: [MovieDTO]?
+
     private enum CodingKeys: String, CodingKey {
         case page
         case totalPages = "total_pages"
         case movies = "results"
     }
-    let page: Int?
-    let totalPages: Int?
-    let movies: [MovieDTO]?
 }
+/// A data transfer object representing a movie.
+struct MovieDTO: Decodable {
 
-extension MoviesResponseDTO {
-    struct MovieDTO: Decodable {
-        private enum CodingKeys: String, CodingKey {
-            case id
-            case title
-            case genre
-            case posterPath = "poster_path"
-            case overview
-            case releaseDate = "release_date"
-        }
-        enum GenreDTO: String, Decodable {
-            case adventure
-            case scienceFiction = "science_fiction"
-        }
-        let id: Int
-        let title: String?
-        let genre: GenreDTO?
-        let posterPath: String?
-        let overview: String?
-        let releaseDate: String?
+    /// The unique identifier for the movie.
+    let id: Int
+
+    /// The title of the movie.
+    let title: String?
+
+    /// The file path for the movie's poster image.
+    let posterPath: String?
+
+    /// An overview or summary of the movie.
+    let overview: String?
+
+    /// The release date of the movie.
+    let releaseDate: String?
+
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case title
+        case posterPath = "poster_path"
+        case overview
+        case releaseDate = "release_date"
     }
 }
 
 // MARK: - Mappings to Domain
-
 extension MoviesResponseDTO {
+    /// Converts the DTO to the corresponding domain model.
     func toDomain() -> MoviesPage? {
         return .init(page: page,
                      totalPages: totalPages,
@@ -55,7 +62,8 @@ extension MoviesResponseDTO {
     }
 }
 
-extension MoviesResponseDTO.MovieDTO {
+extension MovieDTO {
+    /// Converts the DTO to the corresponding domain model.
     func toDomain() -> Movie? {
         return .init(id: id,
                      overview: overview,
@@ -65,22 +73,11 @@ extension MoviesResponseDTO.MovieDTO {
     }
 }
 
-//extension MoviesResponseDTO.MovieDTO.GenreDTO {
-//    func toDomain() -> Movie.Genre {
-//        switch self {
-//        case .adventure: return .adventure
-//        case .scienceFiction: return .scienceFiction
-//        }
-//    }
-//}
-
 // MARK: - Private
 
+/// A date formatter for converting date strings to Date objects.
 private let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyy-MM-dd"
-    formatter.calendar = Calendar(identifier: .iso8601)
-    formatter.timeZone = TimeZone(secondsFromGMT: 0)
-    formatter.locale = Locale(identifier: "en_US_POSIX")
     return formatter
 }()

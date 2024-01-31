@@ -9,9 +9,11 @@ import Networking
 
 /// A request for fetching all movies.
 struct FetchAllMoviesRequest: RequestType {
-    typealias ResponseType = [MoviesResponseDTO]
 
-    /// The path for the request, indicating all users.
+    /// The type of response expected from the request.
+    typealias ResponseType = MoviesResponseDTO
+
+    /// The path for the request, indicating all movies.
     var path: String {
         "/discover/movie"
     }
