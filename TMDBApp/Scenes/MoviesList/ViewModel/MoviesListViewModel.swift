@@ -7,7 +7,6 @@
 
 import Combine
 import Domain
-import Core
 
 /// ViewModel for managing the list of movies.
 final class MoviesListViewModel {
@@ -21,11 +20,19 @@ final class MoviesListViewModel {
     @Published private var state: ViewState = .idle
     /// A subject for triggering a table view reload.
     let reloadTableView = PassthroughSubject<Void, Never>()
-
+    // MARK: - Coordinator
+    /// Coordinator for navigating to other screens.
+    private weak var coordinator: HomeCoordinatorContact?
+    
     // MARK: - Init
     /// Initializes the ViewModel with the specified use case.
-    /// - Parameter useCase: The use case for fetching movies.
-    init(useCase: FetchAllMoviesUseCase = DefaultFetchAllMoviesUseCase(DefaultMoviesRepository())) {
+    /// - Parameter
+    ///  - coordinator: A coordinator responsible for navigation.
+    ///  - useCase: The use case for fetching movies.
+    ///
+    init(coordinator: HomeCoordinatorContact,
+         useCase: FetchAllMoviesUseCase) {
+        self.coordinator = coordinator
         self.useCase = useCase
     }
 }

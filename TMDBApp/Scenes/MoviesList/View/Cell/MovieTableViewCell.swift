@@ -10,7 +10,7 @@ import Domain
 import Kingfisher
 
 /// Custom table view cell for displaying movie information.
-class MovieTableViewCell: UITableViewCell {
+final class MovieTableViewCell: UITableViewCell {
     // MARK: - Outlets
     @IBOutlet private weak var movieImageView: UIImageView!
     @IBOutlet private weak var movieTitleLabel: UILabel!

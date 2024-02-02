@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		603088DF2B6D206C00D1AAB2 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603088DE2B6D206B00D1AAB2 /* Coordinator.swift */; };
+		603088E12B6D208E00D1AAB2 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603088E02B6D208E00D1AAB2 /* DIContainer.swift */; };
+		603088E32B6D20C400D1AAB2 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603088E22B6D20C400D1AAB2 /* AppCoordinator.swift */; };
+		603088E52B6D20FA00D1AAB2 /* HomeCoordinatorContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603088E42B6D20FA00D1AAB2 /* HomeCoordinatorContact.swift */; };
 		607864A42B6BE1FF00B06216 /* ViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607864A12B6BE1FF00B06216 /* ViewControllerProtocol.swift */; };
 		607864A52B6BE1FF00B06216 /* LoadingStateControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607864A22B6BE1FF00B06216 /* LoadingStateControllable.swift */; };
 		607864A62B6BE1FF00B06216 /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607864A32B6BE1FF00B06216 /* ViewModelProtocol.swift */; };
@@ -63,6 +67,10 @@
 		6007B0962B69434100A2CF62 /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Domain; sourceTree = "<group>"; };
 		6007B0972B6949FE00A2CF62 /* Core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Core; sourceTree = "<group>"; };
 		603088DD2B6CE09000D1AAB2 /* ConfigDev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigDev.xcconfig; sourceTree = "<group>"; };
+		603088DE2B6D206B00D1AAB2 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		603088E02B6D208E00D1AAB2 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		603088E22B6D20C400D1AAB2 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		603088E42B6D20FA00D1AAB2 /* HomeCoordinatorContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinatorContact.swift; sourceTree = "<group>"; };
 		60337A342B680829002045C1 /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Networking; sourceTree = "<group>"; };
 		607864A12B6BE1FF00B06216 /* ViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerProtocol.swift; sourceTree = "<group>"; };
 		607864A22B6BE1FF00B06216 /* LoadingStateControllable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingStateControllable.swift; sourceTree = "<group>"; };
@@ -295,8 +303,12 @@
 			isa = PBXGroup;
 			children = (
 				607864AC2B6BE2D900B06216 /* CommonComponents */,
+				603088E02B6D208E00D1AAB2 /* DIContainer.swift */,
 				60A51BF92B6ACE960039C0EB /* PagingManager.swift */,
 				607864B22B6BE31400B06216 /* NoAutoresizingMask.swift */,
+				603088DE2B6D206B00D1AAB2 /* Coordinator.swift */,
+				603088E22B6D20C400D1AAB2 /* AppCoordinator.swift */,
+				603088E42B6D20FA00D1AAB2 /* HomeCoordinatorContact.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -473,12 +485,14 @@
 			files = (
 				607864A42B6BE1FF00B06216 /* ViewControllerProtocol.swift in Sources */,
 				60A51BE52B6AA10A0039C0EB /* MovieTableViewCell.swift in Sources */,
+				603088E32B6D20C400D1AAB2 /* AppCoordinator.swift in Sources */,
 				60A1AF142B66898C001006CE /* AppDelegate.swift in Sources */,
 				60A51BF32B6ABABC0039C0EB /* UITableView+RegisterNib.swift in Sources */,
 				60A51BE82B6AA8330039C0EB /* MoviesListViewModel.swift in Sources */,
 				607864B52B6BE33500B06216 /* Dimensions.swift in Sources */,
 				607864B12B6BE2F300B06216 /* EmptyView.swift in Sources */,
 				60A1AF162B66898C001006CE /* SceneDelegate.swift in Sources */,
+				603088DF2B6D206C00D1AAB2 /* Coordinator.swift in Sources */,
 				607864A92B6BE28700B06216 /* ViewState.swift in Sources */,
 				607864B32B6BE31400B06216 /* NoAutoresizingMask.swift in Sources */,
 				60A51BF42B6ABABC0039C0EB /* String+Helpers.swift in Sources */,
@@ -491,7 +505,9 @@
 				607864A62B6BE1FF00B06216 /* ViewModelProtocol.swift in Sources */,
 				607864BD2B6BF16C00B06216 /* UIImage+Icons.swift in Sources */,
 				60A51BF22B6ABABC0039C0EB /* Optional+Helpers.swift in Sources */,
+				603088E52B6D20FA00D1AAB2 /* HomeCoordinatorContact.swift in Sources */,
 				60A51BE02B6AA0A70039C0EB /* MoviesListViewController.swift in Sources */,
+				603088E12B6D208E00D1AAB2 /* DIContainer.swift in Sources */,
 				60A51BFA2B6ACE960039C0EB /* PagingManager.swift in Sources */,
 				607864B02B6BE2F300B06216 /* EmptyViews+ViewModel.swift in Sources */,
 			);
