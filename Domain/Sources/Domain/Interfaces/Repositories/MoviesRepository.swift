@@ -6,12 +6,14 @@
 //
 
 import Foundation
-/// A protocol defining the requirements for fetching movie information.
+/// A protocol defining the contract for fetching movie information.
 public protocol MoviesRepository {
-    /// Fetches information for all users.
+    /// Fetches information for all movies on a specified page.
     ///
-    /// - Returns: An array of `Movie` instances representing movie information.
+    /// - Parameter page: The page number for which movie information is requested.
     ///
-    /// - Throws: An error of type `Error` if the movie information cannot be retrieved.
-    func fetchAllMovies() async throws -> [Movie]
+    /// - Returns: An instance of `MoviesPage` representing a page of movies.
+    ///
+    /// - Throws: An error of type `Error` if movie information cannot be retrieved.
+    func fetchAllMovies(for page: Int) async throws -> MoviesPage
 }

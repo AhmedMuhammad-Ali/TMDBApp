@@ -33,9 +33,7 @@ extension Endpoint {
         Environment.baseURL
     }
     /// A dictionary of HTTP headers, including an "Authorization" header with the API token.
-    public var headers: [String: String] {
-        ["Authorization": Environment.apiToken]
-    }
+    public var headers: [String: String] { [:] }
     /// Default implementation of query parameters.
     public var queryParameters: [String: String] { [:] }
 
