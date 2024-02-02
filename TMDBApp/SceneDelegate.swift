@@ -59,11 +59,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 private extension SceneDelegate {
     /// Creates and configures a UINavigationController.
     ///
-    /// - Returns: A configured UINavigationController with a black tinted navigation bar.
+    /// - Returns: A configured UINavigationController.
     func createNavigationController() -> UINavigationController {
         let navigationController = UINavigationController()
-        /// Set the tint color of the navigation bar to black.
-        navigationController.navigationBar.tintColor = .black
         return navigationController
     }
 }
