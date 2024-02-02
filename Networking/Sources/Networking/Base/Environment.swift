@@ -7,10 +7,11 @@
 
 import Foundation
 /// A utility for accessing environment-specific configuration from the app's Info.plist.
-enum Environment {
+public enum Environment {
     private enum PlistKeys {
         static let baseURL = "SERVER_URL"
-        static let apiToken = "API_TOKEN"
+        static let imageBaseURL = "SERVER_IMAGE_URL"
+        static let apiKey = "API_KEY"
     }
     /// Retrieve information from the app's Info.plist file.
     private static var infoDictionary: [String: Any] {
@@ -24,17 +25,23 @@ enum Environment {
         guard let rootURLString = Environment.infoDictionary[PlistKeys.baseURL] as? String else {
             preconditionFailure("Root URL not set in plist for this environment")
         }
-
         guard let url = URL(string: "https://\(rootURLString)") else {
             preconditionFailure("Invalid URL")
         }
         return url
     }
-    /// The API token used for authentication or authorization.
-    static var apiToken: String {
-        guard let apiKey = Environment.infoDictionary[PlistKeys.apiToken] as? String else {
+    /// The base URL for the server's image resources.
+    public static var baseImagePath: String {
+        guard let rootURLString = Environment.infoDictionary[PlistKeys.imageBaseURL] as? String else {
+            preconditionFailure("Root URL not set in plist for this environment")
+        }
+        return "https://\(rootURLString)"
+    }
+    /// The API key  used for authentication or authorization.
+    public static var apiKey: String {
+        guard let apiKey = Environment.infoDictionary[PlistKeys.apiKey] as? String else {
             preconditionFailure("API Key not set in plist for this environment")
         }
-        return "token \(apiKey)"
+        return apiKey
     }
 }
