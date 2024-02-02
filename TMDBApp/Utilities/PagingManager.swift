@@ -56,6 +56,11 @@ final class PagingManager {
         }
         totalNumberOfPages = totalPages
     }
+    /// A method to retrieve the total number of pages in the PagingManager.
+    /// - Returns: The total number of pages currently set in the PagingManager.
+    func getTotalNumberOfPages() -> Int {
+        return totalNumberOfPages
+    }
 
     // MARK: - Private Methods
 
