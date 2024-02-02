@@ -10,6 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    private var appCoordinator: Coordinator?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -19,8 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let window = UIWindow(windowScene: windowScene)
         self.window = window
-        window.rootViewController = MoviesListViewController(viewModel: MoviesListViewModel())
-        window.makeKeyAndVisible()
+        let appCoordinator = AppCoordinator(window: window,
+                                            navigationController: createNavigationController())
+        self.appCoordinator = appCoordinator
+        appCoordinator.start()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -51,4 +54,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
+}
+// MARK: - Private Handler(s)
+private extension SceneDelegate {
+    /// Creates and configures a UINavigationController.
+    ///
+    /// - Returns: A configured UINavigationController with a black tinted navigation bar.
+    func createNavigationController() -> UINavigationController {
+        let navigationController = UINavigationController()
+        /// Set the tint color of the navigation bar to black.
+        navigationController.navigationBar.tintColor = .black
+        return navigationController
+    }
 }
