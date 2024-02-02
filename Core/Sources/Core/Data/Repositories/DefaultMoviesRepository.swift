@@ -26,11 +26,14 @@ extension DefaultMoviesRepository: MoviesRepository {
 
     /// Fetches information for all movies.
     ///
+    /// - Parameters:
+    ///   - page: The page number for paginated movie results.
+    ///
     /// - Returns: An array of `Movie` instances representing movie information.
     ///
     /// - Throws: An error of type `Error` if movie information cannot be retrieved.
-    public func fetchAllMovies() async throws -> MoviesPage {
-        let result = await networking.dispatch(FetchAllMoviesRequest())
+    public func fetchAllMovies(for page: Int) async throws -> MoviesPage {
+        let result = await networking.dispatch(FetchAllMoviesRequest(page: page))
         switch result {
         case .success(let responseDTO):
             guard let moviesPage = responseDTO.toDomain() else { throw RequestError.noResponse }
