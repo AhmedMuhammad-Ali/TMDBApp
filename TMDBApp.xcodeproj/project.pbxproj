@@ -136,7 +136,7 @@
 			path = Configurations;
 			sourceTree = "<group>";
 		};
-		607864A02B6BE1D700B06216 /* BaseClasses */ = {
+		607864A02B6BE1D700B06216 /* BaseProtocols */ = {
 			isa = PBXGroup;
 			children = (
 				607864A22B6BE1FF00B06216 /* LoadingStateControllable.swift */,
@@ -144,7 +144,7 @@
 				607864A32B6BE1FF00B06216 /* ViewModelProtocol.swift */,
 				607864AA2B6BE2B300B06216 /* EmptyViewStateControllable.swift */,
 			);
-			path = BaseClasses;
+			path = BaseProtocols;
 			sourceTree = "<group>";
 		};
 		607864A72B6BE27700B06216 /* System */ = {
@@ -243,7 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				607864A72B6BE27700B06216 /* System */,
-				607864A02B6BE1D700B06216 /* BaseClasses */,
+				607864A02B6BE1D700B06216 /* BaseProtocols */,
 				60A51BDA2B6A9FF60039C0EB /* MoviesList */,
 			);
 			path = Scenes;
