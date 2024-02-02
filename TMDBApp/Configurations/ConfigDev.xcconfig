@@ -1,0 +1,14 @@
+//
+//  ConfigDev.xcconfig
+//  TMDBApp
+//
+//  Created by Ahmed Ali on 02/02/2024.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+APPLICATION_NAME = Movies
+APPLICATION_ICON = AppIcon
+SERVER_URL = api.themoviedb.org/3
+SERVER_IMAGE_URL = image.tmdb.org/t/p/w500/
+API_KEY = dcdd515ce0c354841503da02a91999b6
