@@ -7,7 +7,7 @@
 
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
-APPLICATION_NAME = Trending movies
+APPLICATION_NAME = Movies
 APPLICATION_ICON = AppIcon
 SERVER_URL = api.themoviedb.org/3
 SERVER_IMAGE_URL = image.tmdb.org/t/p/w500/
