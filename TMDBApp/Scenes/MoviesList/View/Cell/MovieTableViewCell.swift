@@ -36,7 +36,8 @@ extension MovieTableViewCell {
         var placeholderImage: UIImage? {
             .placeholderImage
         }
-
+        /// The id of the movie.
+        let id: Int
         /// The title of the movie.
         let title: String
         /// Overview or description of the movie.
@@ -50,6 +51,7 @@ extension MovieTableViewCell {
         ///
         /// - Parameter movie: The movie object containing raw data.
         init(movie: Movie) {
+            self.id = movie.id
             self.title = movie.title
             self.imageURL = movie.posterPath
             self.overview = movie.overview

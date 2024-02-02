@@ -23,7 +23,7 @@ final class MoviesListViewModel {
     // MARK: - Coordinator
     /// Coordinator for navigating to other screens.
     private weak var coordinator: HomeCoordinatorContact?
-    
+
     // MARK: - Init
     /// Initializes the ViewModel with the specified use case.
     /// - Parameter
@@ -48,7 +48,8 @@ extension MoviesListViewModel: MoviesListViewModelInput {
     /// Handles the selection of a movie at a given index.
     /// - Parameter index: The index of the selected movie.
     func didTappedOnMovie(at index: Int) {
-        print(index)
+        guard let movieId = movies?[safe: index]?.id else { return }
+        coordinator?.showMovieDetails(with: movieId)
     }
     func fetchAllMovies() {
         performMovieFetch()
