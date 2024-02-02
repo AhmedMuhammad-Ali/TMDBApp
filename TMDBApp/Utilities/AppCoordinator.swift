@@ -67,29 +67,43 @@ private extension AppCoordinator {
         configureMoviesDependencies()
     }
 
+    /// Configures dependencies related to movies in the app.
     func configureMoviesDependencies() {
         configureReposDependencies()
         configureUseCasesDependencies()
         configureCoordinatorDependencies()
         configureViewModelDependencies()
     }
+
+    /// Configures dependencies related to coordinators.
     func configureCoordinatorDependencies() {
         DIContainer.shared.register(type: DefaultHomeCoordinator.self, objectScope: .singleton) { [unowned self] in
             return DefaultHomeCoordinator(navigationController: self.navigationController)
         }
     }
+
+    /// Configures dependencies related to repositories.
     func configureReposDependencies() {
         DIContainer.shared.register(type: MoviesRepository.self) {
             return DefaultMoviesRepository()
         }
+
+        DIContainer.shared.register(type: MovieDetailsRepository.self) {
+            return DefaultMovieDetailsRepository()
+        }
     }
 
+    /// Configures dependencies related to use cases.
     func configureUseCasesDependencies() {
         DIContainer.shared.register(type: FetchAllMoviesUseCase.self) {
             return DefaultFetchAllMoviesUseCase(DIContainer.shared.resolve(type: MoviesRepository.self))
         }
+        DIContainer.shared.register(type: FetchMovieDetailsUseCase.self) {
+            return DefaultFetchMovieDetailsUseCase(DIContainer.shared.resolve(type: MovieDetailsRepository.self))
+        }
     }
 
+    /// Configures dependencies related to view models.
     func configureViewModelDependencies() {
         DIContainer.shared.register(type: MoviesListViewModel.self) {
             let coordinator = DIContainer.shared.resolve(type: DefaultHomeCoordinator.self, objectScope: .singleton)

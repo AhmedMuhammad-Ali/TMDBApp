@@ -43,11 +43,25 @@ extension DefaultHomeCoordinator: HomeCoordinatorContact {
         let viewController = MoviesListViewController(viewModel: viewModel)
         navigationController.setViewControllers([viewController], animated: false)
     }
-    /// Shows the details screen for a specific movie by printing the movie ID.
+    /// Shows the movie details screen with the specified movie ID.
     ///
-    /// - Parameter movieID: The unique identifier of the movie.
+    /// This method resolves the `FetchMovieDetailsUseCase` from the dependency container,
+    /// initializes a `MovieDetailsViewModel` with the fetched details, and presents the
+    /// `MovieDetailsViewController` using the navigation controller.
+    ///
+    /// - Parameter movieID: The unique identifier of the movie for which details will be displayed.
     func showMovieDetails(with movieID: Int) {
-        print(movieID)
+        // Resolve the FetchMovieDetailsUseCase from the dependency container
+        let fetchMovieDetailsUseCase = DIContainer.shared.resolve(type: FetchMovieDetailsUseCase.self)
+
+        // Initialize a MovieDetailsViewModel with the fetched details
+        let viewModel = MovieDetailsViewModel(useCase: fetchMovieDetailsUseCase, movieId: movieID)
+
+        // Create a MovieDetailsViewController with the initialized view model
+        let viewController = MovieDetailsViewController(viewModel: viewModel)
+
+        // Push the MovieDetailsViewController onto the navigation stack
+        navigationController.pushViewController(viewController, animated: true)
     }
 
 }
