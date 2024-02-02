@@ -14,6 +14,12 @@ protocol ImageRepresentable {
     var imageURL: String? { get }
     var placeholderImage: UIImage? { get }
 }
+// MARK: - Default implementation 
+extension ImageRepresentable {
+    var placeholderImage: UIImage? {
+        .placeholder
+    }
+}
 
 // MARK: - ImageLoader
 //
