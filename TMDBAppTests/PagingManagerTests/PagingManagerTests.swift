@@ -52,7 +52,6 @@ class PagingManagerTests: XCTestCase {
         // Then
         XCTAssertFalse(pagingController.shouldLoadNextPage)
     }
-    
     func testUpdateTotalNumberOfPages_WithValidInput_SetsTotalNumberOfPages() {
         // Given
         let pagingController = PagingManager()

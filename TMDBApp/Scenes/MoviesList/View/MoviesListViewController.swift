@@ -69,7 +69,7 @@ private extension MoviesListViewController {
     }
 }
 
-// MARK: -  Configuration
+// MARK: - Configuration
 private extension MoviesListViewController {
     /// Configures the table view's delegate, data source, and prefetch data source.
     func configureTableView() {
